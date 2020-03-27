@@ -21,7 +21,7 @@ pipeline{
 				nexusVersion: 'nexus3', 
 				protocol: 'http', 
 				repository: 'pets-app-snapshot', 
-				version: '2.2-SNAPSHOT'
+				version: '3.2-SNAPSHOT'
 			}
 		}
 	}
