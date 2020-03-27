@@ -10,7 +10,7 @@ pipeline{
 			git credentialsId: 'Github', url: 'https://github.com/madhavi3110/pets-app'
 			}
 		}
-		stage('Mavan Build/package'){
+		stage('Maven Build/package'){
 			steps{
 			sh 'mvn clean package'
 			}
