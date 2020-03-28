@@ -30,6 +30,7 @@ pipeline{
 		}
 		stage('Deploy-Tomcat'){
 			steps{
+				script{
 				sshagent(['tomcat-dev']) {
 					def userHost = "ec2-user@172.31.42.210"
 					def tomcatBin = "ec2-user@172.31.42.210 /opt/tomcat8/bin"
@@ -38,6 +39,7 @@ pipeline{
 					//stop and start tomcat
 					sh "ssh ${tomcatBin}/shutdown.sh"
 					sh "ssh ${tomcatBin}/startup.sh"
+				    }
 				}
 			}
 		}
