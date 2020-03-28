@@ -10,12 +10,13 @@ pipeline{
 			sh 'mvn clean package'
 			}
 		}
+
 		stage('Nexus Deploy'){
 			steps{
 				scripts{
 			  		def pomFile = readMavenPom file: 'pom.xml'
 					def version = pomFile.version  
-					def nexusRepo = version.endswith("SNAPSHOT") ? "pets-app-snapshot" : "pets-app-release"
+					def nexusRepo = version.endsWith("SNAPSHOT") ? "pets-app-snapshot" : "pets-app-release"
 			  		nexusArtifactUploader artifacts: [[artifactId: 'pets-app', classifier: '', file: 'target/pets-app.war', type: 'war']], 
 					credentialsId: 'Nexus3', 
 					groupId: 'in.Madhavi', 
