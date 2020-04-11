@@ -4,7 +4,11 @@
   <groupId>in.Madhavi</groupId>
   <artifactId>pets-app</artifactId>
   <packaging>war</packaging>
+<<<<<<< HEAD
   <version>2.2-SNAPSHOT</version>
+=======
+  <version>3.4-SNAPSHOT</version>
+>>>>>>> b5c17ec5aaabd5176d2e4255bb4b973cf507a131
   <name>pets-app Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
