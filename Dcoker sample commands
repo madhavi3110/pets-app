@@ -1,0 +1,296 @@
+
+    1  cd /opt/
+    2  cd ..
+    3  sudo yum install docker -y
+    4  sudo usermod -a -G docker ec2-user
+    5  pwd
+    6  ls
+    7  sudo chkconfig docker on
+    8  sudo service docker start
+    9  docker info
+   10  exit
+   11  docker info
+   12  docker images
+   13  docker run -d -p 8080:8080 kammana/nodeapp:v1
+   14  docker images
+   15  docker ps -a
+   16  docker ps
+   17  clear
+   18  docker run -it -p 8090:8080 kammana/nodeapp:v1
+   19  clear
+   20  docker run -d -p --name=javahomeapp  8080:8080 kammana/nodeapp:v2
+   21  docker run -d -p --name=javahomeapp  8080:8080 kammana/nodeapp
+   22  docker run -d -p --name=javahomeapp  8080:9090 kammana/nodeapp:v2
+   23  docker run -d -p --name=javahomeapp 9090:8080 kammana/nodeapp:v2
+   24  docker run -d -p 9090:8080 --name=javahome kammana/nodeapp:v2
+   25  clear
+   26  docker images
+   27  docker ps
+   28  clear
+   29  history
+   30  clear
+   31  docker stop javahome
+   32  docker ps
+   33  docker ps -a
+   34  docker ps -aq
+   35  docker rm $(docker ps -aq)
+   36  docker ps -aq
+   37  docker stop 8d88cb399030
+   38  docker rm 8d88cb399030
+   39  docker ps -a
+   40  docker images
+   41  docker images -q
+   42  docker rmi $(docker images -q)
+   43  clear
+   44  docker images
+   45  docker logs javahome
+   46  docker ps
+   47  docker run -d -p 9090:8080 --name=javahome kammana/nodeapp:v2
+   48  docker ps
+   49  docker exec -it 1dc517f1b0e2 bash
+   50  clear
+   51  pwd
+   52  ls
+   53  vi Dockerfile
+   54  cat Dockerfile
+   55  vi Dockerfile
+   56  ls
+   57  docker build -t myapp:1 .
+   58  docker run -it myapp:1 java -version
+   59  ls
+   60  java
+   61  clear
+   62  java
+   63  vi Welcome.java
+   64  javac Welcome.java
+   65  docker run -it myapp:1 java -version
+   66  ls
+   67  docker build -t myapp:1 .
+   68  java
+   69  java Welcome
+   70  clear
+   71  history
+   72  vi Dockerfile
+   73  cat Dockerfile
+   74  docker run -it myapp:1 java -version
+   75  cat Welcome.java
+   76  java
+   77  sudo yum install java-1.8.0-openjdk -y
+   78  java
+   79  clear
+   80  cat Welcome.java
+   81  vi Welcome.java
+   82  javac welcome.java
+   83  javac Welcome.java
+   84  java Welcome
+   85  sudo yum install java-1.8.0-openjdk-devel -y
+   86  javac Welcome.java
+   87  java Welcome
+   88  vi Dockerfile
+   89  docker build -t hari:1 .
+   90  docker run -it hari:1
+   91  docker run -it hari:1 .
+   92  docker run -it hari:1 ash
+   93  clear
+   94  vi Dockerfile
+   95  docker build -t hari:1 .
+   96  docker run -it hari:1
+   97  history
+   98  clear
+   99  vi Dockerfile
+  100  docker build -t hari:1 .
+  101  docker run -it hari:1
+  102  vi Dockerfile
+  103  docker build -t hari:1 .
+  104  docker run -it hari:1
+  105  docker run -it hari:1 pwd
+  106  docker run -it hari:1 ls
+  107  exit
+  108  docker build -t hari:1 --build-arg JAVA_VERSION=git .
+  109  cat Dockerfile
+  110  vi Dockerfile
+  111  docker build -t hari:1 --build-arg JAVA_VERSION=git .
+  112  cat Dockerfile
+  113  touch dev.preperties
+  114  touch stg.preperties
+  115  touch dev.properties
+  116  touch stg.properties
+  117  touch prod.properties
+  118  vi Dockerfile
+  119  docker build -t hari:1 --build-arg JAVA_VERSION=git .
+  120  docker run -it hari:1 ls
+  121  docker run -it hari:1 ls /
+  122  sudo rm dev.preperties
+  123  ls
+  124  sudo rm stg.preperties
+  125  vi Dockerfile
+  126  docker build -t hari:1
+  127  docker build -t hari:1 .
+  128  docker run -t hari:1
+  129  docker run -t -e APP_ENV=stg hari:1
+  130  docker run -t -e APP_ENV=prod hari:1
+  131  clear
+  132  vi index.html
+  133  ls
+  134  rm dev.properties
+  135  rm stg.properties
+  136  rm prod.properties
+  137  ls
+  138  vi vi Dockerfile
+  139  vi Dockerfile
+  140  vi Dockerfile1
+  141  cat Dockerfile1
+  142  docker build -t myweb:1 .
+  143  rm Dcokerfile1
+  144  rm Dockerfile1
+  145  vi Dockerfile
+  146  docker build -t myweb:1 .
+  147  vi Dockerfile
+  148  docker build -t myweb:1 .
+  149  docker run -d -p 8080:80 myweb:1
+  150  docker build -t myweb:1 .
+  151  docker run -d -p 8090:80 myweb:1
+  152  docker start f4c03eb3d41e
+  153  docker stop f4c03eb3d41e
+  154  docker ps
+  155  docker ps -a
+  156  docker rm $(docker ps -a)
+  157  docker ps -aq
+  158  docker rm $(docker ps -aq)
+  159  docker ps -a
+  160  docker images
+  161  docker images -q
+  162  docker rmi $(docker images -q)
+  163  clear
+  164  docker images
+  165  vi Dockerfile
+  166  docker build -t myweb:1 .
+  167  docker run -d -p 8090:80 myweb:1
+  168  docker network ls
+  169  docker ps
+  170  docker run -itd --name=hostone alpine:latest
+  171  docker run -itd --name=hosttwo alpine:latest
+  172  docker network inspect
+  173  clear
+  174  docker network inspect bridge
+  175  clear
+  176  docker exec -it hostone ash
+  177  docker rm -f $(dcoker pa -aq)
+  178  docker rm -f $(docker pa -aq)
+  179  docker ps -aq
+  180  docker rm $(docker ps -aq)
+  181  docker rm -f $(docker ps -aq)
+  182  clear
+  183  docker network create -d bridge MadhaviDemo
+  184  docker run -itd --name=hostone MadhaviDemo alpine
+  185  docker run -itd --name=hostone --network MadhaviDemo alpine
+  186  docker run -itd --name=hosttwo --network MadhaviDemo alpine
+  187  docker network ls
+  188  docker run -itd --name=hosttwo --network=MadhaviDemo alpine
+  189  docker network inspect bridge
+  190  docker exec -it hostone ash
+  191  clear
+  192  docker networl ls
+  193  docker network ls
+  194  docker run -d --name=redis --network=MadhaviDemo redis:latest
+  195  docker run -it -p 8080:5000 "redis_host=redis" kammana/nodeapp:0.0.1
+  196  docker run -it -p 8080:5000 -e "redis_host=redis" kammana/nodeapp:0.0.1
+  197  clear
+  198  docker run -d -p 8080:5000 -e "redis_host=redis" kammana/nodeapp:0.0.1
+  199  docker ps 1ad3de3c6661
+  200  ls
+  201  docker attach 1ad3de3c6661
+  202  clear
+  203  curl http://localhost:8080
+  204  docker run -d -p 8080:5000 --netwrok=MadhaviDemo python-app:1
+  205  docker ps -a
+  206  docker rm -f $(docker ps -aq)
+  207  clear
+  208  vi Dockerfile
+  209  docker run -d -p 8080:5000 --netwrok=MadhaviDemo python-app:1
+  210  docker run -d -p 8080:5000 --network=MadhaviDemo python-app:1
+  211  docker run -it -p 8080:5000 --network=MadhaviDemo python-app:1
+  212  vi Dockerfile
+  213  docker rm -f $(docker ps -aq)
+  214  clear
+  215  docker run -d --name=redis --network=MadhaviDemo redis
+  216  docker run -d -p 8090:5000 --network=MadhaviDemo python-app:1 python app.py
+  217  docker run -d -p 8080:5000 --network=MadhaviDemo python-app:1 python app.py
+  218  docker run -it -p 8080:5000 --network=MadhaviDemo python-app:1 python app.py
+  219  docker run -it -p 8080:5000 --network=MadhaviDemo python-app:1
+  220  clear
+  221  docker rm -f $(docker ps -aq)
+  222  docker rmi -f $(docker -q)
+  223  docker images
+  224  docker images -q
+  225  docker rmi -f $(docker images -q)
+  226  docker network bridge
+  227  history
+  228  docker network inspect bridge
+  229  clear
+  230  history
+  231  docker network inspect
+  232  docker network
+  233  docker network ls
+  234  docker run -d --name=redis --network=MadhaviDemo redis:latest
+  235  docker run -d -p 8080:5000 --name=pythonap  --network=MadhaviDemo kammana/python-app:1
+  236  docker run -itd alpine
+  237  docker exec -it 4043cafa8dd141 ash
+  238  docker ps
+  239  docker rm -f 4043cafa8dd141
+  240  docker ps
+  241  docker volume create myval
+  242  dcoker inspect myval
+  243  docker volume inspaect myval
+  244  docker volume inspect myval
+  245  docker run -itd -v myval /opt/madhavi/ alpine
+  246  docker volume ls
+  247  d.docker run -itd -v myval:/opt/madhavi/  alpine
+  248  docker run -itd -v myval:/opt/madhavi/  alpine
+  249  docker exec -it a49ff86f2510a
+  250  docker exec -it a49ff86f2510a ash
+  251  docker volume inspect myval
+  252  sudo -s
+  253  docker ps
+  254  docker rm -f a49ff86f2510
+  255  pwd
+  256  cd /opt/madhavi/
+  257  docker run -itd -v myval:/opt/madhavi/  alpine
+  258  docker exec -it cb507f76a740c6 ash
+  259  docker ps
+  260  docker rm - f cb507f76a740
+  261  docker rm -f cb507f76a740
+  262   ./docker run -itd -v /home/ec2-user/madhavi:/opt/madhavi/  alpine
+  263  docker run -itd -v /home/ec2-user/madhavi:/opt/madhavi/  alpine
+  264  ls
+  265  cd madhavi
+  266  ls
+  267  cd..
+  268  cd\
+  269  cd ..
+  270  cd madhavi
+  271  sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  272  sudo chmod +x /usr/local/bin/docker-compose
+  273  sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+  274  docker-compose --version
+  275  wget https://raw.githubusercontent.com/javahometech/docker-compose/master/docker-compose.yml
+  276  ls
+  277  cat docker-compose.yml
+  278  docker-compose up -d
+  279  docker-compose ps
+  280  docker-compose down
+  281  docker-compose up -d
+  282  docker push madhudocker3110/mywebapp:1
+  283  docker images
+  284  docker rmi -f $(docker images -q)
+  285  docker rm -f $(docker rm -aq)
+  286  docker rm -f $(docker ps -aq)
+  287  docker rmi -f $(docker images -q)
+  288  ls
+  289  rm -f Dockerfile
+  290  sudo usermod -a -G docker ec2-user
+  291  vi Dockerfile
+  292  docker pull madhudocker3110/mywebapp
+  293  docker push madhudocker3110/mywebapp:1
+  294  docker run -itd
+  295  history

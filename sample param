@@ -1,0 +1,14 @@
+pipeline{
+	agent any
+	parameters{
+	    booleanParam defaultValue: true, description: 'Do you want to ignore test', name: 'skiptest'
+	    choice choices: ['dev', 'test', 'uat', 'prod'], description: 'choose environment', name: 'appEnv'
+	}
+	stages{
+		stage('Demo'){
+		steps{
+			echo "Parameteried Demo"
+			}
+		}
+	}
+}
