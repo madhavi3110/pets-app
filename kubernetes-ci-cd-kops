@@ -1,0 +1,44 @@
+pipeline{
+  agent any
+  tools {
+    maven 'maven3'
+  }
+  stages{
+    stage('Maven Build'){
+      steps{
+        sh "mvn clean package"
+      }
+    }
+    stage('Build Docker Image'){
+      steps{
+        sh "docker build . -t madhudocker3110/pets-app:${dockerTag()}
+      }
+    }
+    
+    stage('Docker Push'){
+      steps{
+        withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
+          sh "docker login -u madhudocker3110 -p ${dockerPwd}"
+          sh "docker push madhudocker3110/pets-app:${dockerTag()}"
+        }
+        
+      }
+    }
+    
+    stage('Deploy k8s'){
+      steps{
+        sh """
+	     VERSION=${dockerTag()}
+	     sed -i "s/commit_hash/\$VERSION/g" k8s/deployment.yml
+	"""
+        kubernetesDeploy configs: 'k8s/*.yml', 
+                       kubeconfigId: 'k8s-weekend'
+      }
+    }
+  }
+}
+
+def dockerTag(){
+    def commitId = sh returnStdout: true, script: 'git rev-parse --short HEAD'
+	  return commitId
+}
