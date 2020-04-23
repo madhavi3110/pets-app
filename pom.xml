@@ -1,14 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>in.Madhavi</groupId>
+  <groupId>in.javahome</groupId>
   <artifactId>pets-app</artifactId>
   <packaging>war</packaging>
-<<<<<<< HEAD
-  <version>2.2-SNAPSHOT</version>
-=======
-  <version>3.4-SNAPSHOT</version>
->>>>>>> b5c17ec5aaabd5176d2e4255bb4b973cf507a131
+  <version>2.0</version>
   <name>pets-app Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -18,17 +14,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+		<dependency>
+		<groupId>com.itextpdf</groupId>
+		<artifactId>itextpdf</artifactId>
+		<version>5.0.6</version>
+	</dependency>
+
   </dependencies>
-  <distributionManagement>
-	<snapshotRepository>
-		<id>nexusRepo</id>
-		<url>http://13.233.24.43/:8081/repository/pets-app-snapshot/</url>
-	</snapshotRepository>	
-	<repository>
-		<id>nexusRepo</id>
-		<url>http://13.233.24.43/:8081/repository/pets-app-release/</url>
-	</repository>
-  </distributionManagement>
+
   <build>
     <finalName>pets-app</finalName>
   </build>
