@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: pets-app
-        image: kammana/pets-app:commit_hash
+        image: madhudocker3110/pets-app:commit_hash
         ports:
         - containerPort: 8080
