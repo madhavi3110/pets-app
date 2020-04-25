@@ -17,7 +17,7 @@ pipeline{
     
     stage('Docker Push'){
       steps{
-        withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
+        withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerPwd')]) {
           sh "docker login -u madhudocker3110 -p ${dockerPwd}"
           sh "docker push madhudocker3110/pets-app:${dockerTag()}"
         }
@@ -32,7 +32,7 @@ pipeline{
 	     sed -i "s/commit_hash/\$VERSION/g" k8s/deployment.yml
 	"""
         kubernetesDeploy configs: 'k8s/*.yml', 
-                       kubeconfigId: 'k8s-weekend'
+                       kubeconfigId: 'k8s-madhavi'
       }
     }
   }
