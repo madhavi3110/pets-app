@@ -23,17 +23,7 @@ pipeline{
               }
          }
     }
-    
-   # stage('Deploy k8s'){
-   #   steps{
-   #     sh """
-   #     VERSION=${dockerTag()}
-   #     sed -i "s/commit_hash/\$VERSION/g" k8s/deployment.yml
-   #	"""
-   #     kubernetesDeploy configs: 'k8s/*.yml', 
-   #                    kubeconfigId: 'k8s-madhavi'
-    #  }
-    #}
+
   }
 }
 
