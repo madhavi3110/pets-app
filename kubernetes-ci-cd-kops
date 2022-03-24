@@ -19,7 +19,7 @@ pipeline{
       steps{
          script {
                withDockerServer([uri: 'unix:///var/run/docker.sock']) {
-               withDockerRegistry([credentialsId: 'docker', url: "https://hub.docker.com/"]) { 
+               withDockerRegistry([credentialsId: 'docker', url: "https://hub.docker.com"]) { 
                sh "sudo docker push madhudocker3110/pets-app:${dockerTag()}"   
                }  
               }
