@@ -21,7 +21,7 @@ pipeline{
                 withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'password', usernameVariable: 'docker')]) {
                  sh "docker login -u madhudocker3110 -p ${password}"
                 }
-                sh "sudo docker push madhudocker3110/app_new:${dockerTag()}" 
+                sh "docker push madhudocker3110/app_new:${dockerTag()}" 
                }
          }
     }
