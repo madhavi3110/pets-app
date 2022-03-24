@@ -18,7 +18,7 @@ pipeline{
     stage('Docker Push'){
       steps{
          script {
-                withCredentials([usernamePassword(credentialsId: '39fe48d5-8d56-40aa-9358-da0319231dc5', passwordVariable: 'password', usernameVariable: 'user')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'password', usernameVariable: 'docker')]) {
                  sh "docker login -u madhudocker3110 -p ${password}"
                 }
                 sh "sudo docker push madhudocker3110/pets-app:${dockerTag()}" 
