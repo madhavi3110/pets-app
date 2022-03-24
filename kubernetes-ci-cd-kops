@@ -11,21 +11,19 @@ pipeline{
     }
     stage('Build Docker Image'){
       steps{
-        sh "sudo docker build . -t madhudocker3110/pets-app:${dockerTag()}"
+        sh "docker build . -t madhudocker3110/pets-app:${dockerTag()}"
       }
     }
     
     stage('Docker Push'){
       steps{
          script {
-               withDockerServer([uri: 'unix:///var/run/docker.sock']) {
-               withDockerRegistry([credentialsId: '39fe48d5-8d56-40aa-9358-da0319231dc5', url: "https://hub.docker.com/"])
-                }
-
+               withDockerServer([uri: 'unix:///var/run/docker.sock']) 
+               withDockerRegistry([credentialsId: '39fe48d5-8d56-40aa-9358-da0319231dc5', url: "https://hub.docker.com/"])  
+               sh "docker push madhudocker3110/pets-app:${dockerTag()}"     
               }
          }
     }
-
   }
 }
 
