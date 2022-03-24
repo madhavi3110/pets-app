@@ -20,14 +20,13 @@ pipeline{
          script {
                 withCredentials([usernamePassword(credentialsId: '39fe48d5-8d56-40aa-9358-da0319231dc5', passwordVariable: 'password', usernameVariable: 'user')]) {
                  sh "docker login -u madhudocker3110 -p ${password}"
-                   }
-               sh "sudo docker push madhudocker3110/pets-app:${dockerTag()}" 
+                }
+                sh "sudo docker push madhudocker3110/pets-app:${dockerTag()}" 
                }
          }
     }
   }
 }
-
 def dockerTag(){
     def commitId = sh returnStdout: true, script: 'git rev-parse --short HEAD'
 	  return commitId
