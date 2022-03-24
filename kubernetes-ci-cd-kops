@@ -32,8 +32,8 @@ pipeline{
    #	"""
    #     kubernetesDeploy configs: 'k8s/*.yml', 
    #                    kubeconfigId: 'k8s-madhavi'
-      }
-    }
+    #  }
+    #}
   }
 }
 
